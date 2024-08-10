@@ -3,17 +3,17 @@ package Problems_BFS_DFS;
 import java.util.LinkedList;
 import java.util.Queue;
 
-
-class Pair{
-    int row;
-    int col;
-
-    Pair(int row,int col){
-        this.row  = row;
-        this.col = col;
-    }
-}
 public class Number_of_Islands {
+
+    static class Pair{
+        int row;
+        int col;
+
+        Pair(int row,int col){
+            this.row  = row;
+            this.col = col;
+        }
+    }
     static int num_Island(int[][] grid){
         int n = grid.length;
         int m = grid[0].length;
