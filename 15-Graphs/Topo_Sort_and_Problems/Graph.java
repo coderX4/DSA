@@ -1,4 +1,4 @@
-package Problems_BFS_DFS;
+package Topo_Sort_and_Problems;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -75,17 +75,16 @@ public class Graph<T> {
     }
 
     public static void main(String[] args) {
-        Integer[][] edges = {{1,2},{2,3},{3,4}};
-        Integer[][] edges1 = {{1,2},{2,3},{3,4},{4,5},{5,6},{6,7},{7,8},{3,9},{9,10},{10,6}};
+        Integer[][] edges = {{1,2},{2,3},{1,3}};
         String[][] stredges  = {{"A","B"}};
         int n = 3;
         int m = 6;
-        Graph<Integer> graph1 = new Graph<Integer>(edges1,false);
-        //Graph<String> graph2 = new Graph<String>(stredges,true);
+        Graph<Integer> graph1 = new Graph<Integer>(edges,true);
+        Graph<String> graph2 = new Graph<String>(stredges,true);
 
         graph1.Print();
         System.out.println();
-        //graph2.Print();
+        graph2.Print();
 
     }
 }
