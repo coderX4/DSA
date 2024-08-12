@@ -6,6 +6,8 @@ import java.util.HashMap;
 public class Graph<T> {
 
     HashMap<T,ArrayList<T>> map = new HashMap<>();
+
+    ArrayList<ArrayList<T>> adjList = new ArrayList<>();
     T firstnode;
     boolean bidirected = false;
     T[][] edges;
@@ -14,6 +16,15 @@ public class Graph<T> {
         this.bidirected = bidirected;
 
         Convert(bidirected);
+    }
+
+    public Graph(T[][] edges, boolean bidirected,ArrayList<ArrayList<T>> adjList){
+        this.edges = edges;
+        this.bidirected = bidirected;
+        this.adjList = adjList;
+
+        Convert(bidirected);
+        Convert_to_ArrayList(adjList);
     }
 
 
@@ -74,17 +85,26 @@ public class Graph<T> {
         }
     }
 
+    void Convert_to_ArrayList(ArrayList<ArrayList<T>> adj){
+        for(T it:map.keySet()){
+            adj.add(map.get(it));
+        }
+    }
+
     public static void main(String[] args) {
         Integer[][] edges = {{1,2},{2,3},{1,3}};
         String[][] stredges  = {{"A","B"}};
         int n = 3;
         int m = 6;
-        Graph<Integer> graph1 = new Graph<Integer>(edges,true);
+        ArrayList<ArrayList<Integer>> adjlisst = new ArrayList<>();
+        Graph<Integer> graph1 = new Graph<Integer>(edges,true,adjlisst);
         Graph<String> graph2 = new Graph<String>(stredges,true);
 
         graph1.Print();
         System.out.println();
         graph2.Print();
+
+        System.out.println(adjlisst);
 
     }
 }
