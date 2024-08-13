@@ -90,6 +90,24 @@ public class Graph<T> {
             adj.add(map.get(it));
         }
     }
+    void Reverse_Edges() {
+    	map.clear();
+    	for(int i = 0; i < edges.length;i++){
+            if(!map.containsKey(edges[i][1])){
+                map.put(edges[i][1],new ArrayList<T>());
+                map.get(edges[i][1]).add(edges[i][0]);
+                if(!map.containsKey(edges[i][0])){
+                    map.put(edges[i][0],new ArrayList<T>());
+                }
+            }
+            else{
+                map.get(edges[i][1]).add(edges[i][0]);
+                if(!map.containsKey(edges[i][0])){
+                    map.put(edges[i][0],new ArrayList<T>());
+                }
+            }
+        }
+    }
 
     public static void main(String[] args) {
         Integer[][] edges = {{1,2},{2,3},{1,3}};
