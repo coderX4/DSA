@@ -10,7 +10,7 @@ public class Alien_Dictionary {
     static ArrayList<Integer> Toposort(ArrayList<ArrayList<Integer>> adjList){
         int v = adjList.size();
         int[] indegree = new int[v];
-        for(int i = 0;i< adjList.size();i++){
+        for(int i = 0;i < adjList.size();i++){
             for(Integer it: adjList.get(i)){
                 indegree[it]++;
             }
