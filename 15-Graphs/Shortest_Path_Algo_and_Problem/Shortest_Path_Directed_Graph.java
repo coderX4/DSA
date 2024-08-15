@@ -1,6 +1,7 @@
 package Shortest_Path_Algo_and_Problem;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -35,21 +36,30 @@ public class Shortest_Path_Directed_Graph {
         return sort;
     }
 
-    static int[] Shortest_Path(int n,int src,Graph graph){
+    static int[] Shortest_Path(int n,Graph graph){
         ArrayList<Integer> topo = Toposort(graph);
         int[] dist = new int[n];
         for(int i:dist){
             dist[i] = Integer.MAX_VALUE;
         }
-        dist[src] = 0;
-        for(int it:topo){
-
+        dist[0] = 0;
+        for(int i = 0;i < topo.size();i++){
+            int node = topo.get(i);
+            for(Graph.Pair adj:graph.adjList2.get(node)){
+                int v = adj.node;
+                int wt = adj.weight;
+                if(dist[node] + wt < dist[v]){
+                    dist[v] = dist[node] + wt;
+                }
+            }
         }
-
+        return dist;
     }
     public static void main(String[] args) {
         int[][] edges = {{0,1,2},{1,3,1},{4,0,3},{6,4,2},{6,5,3},{5,4,1},{4,2,1},{2,3,3}};
         Graph graph = new Graph(7,edges,true,true);
         graph.Print_weighted();
+        int[] ans = Shortest_Path(7,graph);
+        System.out.println(Arrays.toString(ans));
     }
 }
