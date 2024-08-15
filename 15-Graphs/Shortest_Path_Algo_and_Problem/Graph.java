@@ -1,7 +1,6 @@
 package Shortest_Path_Algo_and_Problem;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Graph {
     static class Pair{
@@ -41,15 +40,15 @@ public class Graph {
 
     }
 
-    static void PutEdge(int i,int a,int b){
+    void PutEdge(int i,int a,int b){
         adjList.get(edges[i][a]).add(edges[i][b]);
     }
 
-    static void PutEdge_weighted(int i,int a,int b,int c){
+    void PutEdge_weighted(int i,int a,int b,int c){
         adjList2.get(edges[i][a]).add(new Pair(edges[i][b],edges[i][c]));
     }
 
-    static  void Convert(boolean directed){
+    void Convert(boolean directed){
         if(directed){
             for(int i = 0;i < edges.length;i++){
                 PutEdge(i,0,1);
@@ -62,7 +61,7 @@ public class Graph {
             }
         }
     }
-    static void Convert_weighted(boolean directed){
+    void Convert_weighted(boolean directed){
         if(directed){
             for(int i = 0;i < edges.length;i++){
                 PutEdge_weighted(i,0,1,2);
