@@ -13,8 +13,8 @@ public class Graph {
     }
 
     static  int n;
-    static ArrayList<ArrayList<Pair>> adjList2 = new ArrayList<>();
-    static ArrayList<ArrayList<Integer>> adjList = new ArrayList<>();
+    ArrayList<ArrayList<Pair>> adjList2 = new ArrayList<>();
+    ArrayList<ArrayList<Integer>> adjList = new ArrayList<>();
     static int[][] edges ;
     boolean weighted = false;
     boolean directed = false;
