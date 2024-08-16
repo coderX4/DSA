@@ -66,7 +66,7 @@ public class Shortest_Path_Directed_Graph {
         int[][] edges = {{0,1,2},{0,4,1},{4,5,4},{4,2,2},{1,2,3},{2,3,6},{5,3,1}};
         Graph graph = new Graph(6,edges,true,true);
         graph.Print_weighted();
-        int[] ans = Shortest_Path(6,0,graph);
+        int[] ans = Shortest_Path(6,4,graph);
         System.out.println(Arrays.toString(ans));
     }
 
