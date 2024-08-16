@@ -36,30 +36,39 @@ public class Shortest_Path_Directed_Graph {
         return sort;
     }
 
-    static int[] Shortest_Path(int n,Graph graph){
+    static int[] Shortest_Path(int n,int src,Graph graph){
         ArrayList<Integer> topo = Toposort(graph);
         int[] dist = new int[n];
-        for(int i:dist){
-            dist[i] = Integer.MAX_VALUE;
+        for(int i =0 ;i < n;i++){
+            if(i == src){
+                dist[i] = 0;
+            }
+            dist[i] = (int)(1e9);
         }
-        dist[0] = 0;
+        dist[src] = 0;
         for(int i = 0;i < topo.size();i++){
             int node = topo.get(i);
-            for(Graph.Pair adj:graph.adjList2.get(node)){
-                int v = adj.node;
-                int wt = adj.weight;
+            for(int j =0 ;j < graph.adjList2.get(node).size();j++){
+                int v = graph.adjList2.get(node).get(j).node;
+                int wt = graph.adjList2.get(node).get(j).weight;
                 if(dist[node] + wt < dist[v]){
                     dist[v] = dist[node] + wt;
                 }
             }
+
+        }
+        for (int i = 0; i < n; i++) {
+            if (dist[i] == 1e9) dist[i] = -1;
         }
         return dist;
     }
     public static void main(String[] args) {
-        int[][] edges = {{0,1,2},{1,3,1},{4,0,3},{6,4,2},{6,5,3},{5,4,1},{4,2,1},{2,3,3}};
-        Graph graph = new Graph(7,edges,true,true);
+        int[][] edges = {{0,1,2},{0,4,1},{4,5,4},{4,2,2},{1,2,3},{2,3,6},{5,3,1}};
+        Graph graph = new Graph(6,edges,true,true);
         graph.Print_weighted();
-        int[] ans = Shortest_Path(7,graph);
+        int[] ans = Shortest_Path(6,0,graph);
         System.out.println(Arrays.toString(ans));
     }
+
+
 }
