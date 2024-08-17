@@ -38,6 +38,7 @@ public class Shortest_Path_Directed_Graph {
 
     static int[] Shortest_Path(int n,int src,Graph graph){
         ArrayList<Integer> topo = Toposort(graph);
+        System.out.println("Topo_sort: "+ topo);
         int[] dist = new int[n];
         for(int i =0 ;i < n;i++){
             if(i == src){
@@ -48,14 +49,13 @@ public class Shortest_Path_Directed_Graph {
         dist[src] = 0;
         for(int i = 0;i < topo.size();i++){
             int node = topo.get(i);
-            for(int j =0 ;j < graph.adjList2.get(node).size();j++){
-                int v = graph.adjList2.get(node).get(j).node;
-                int wt = graph.adjList2.get(node).get(j).weight;
+            for(Graph.Pair it: graph.adjList2.get(node)){
+                int v = it.node;
+                int wt = it.weight;
                 if(dist[node] + wt < dist[v]){
                     dist[v] = dist[node] + wt;
                 }
             }
-
         }
         for (int i = 0; i < n; i++) {
             if (dist[i] == 1e9) dist[i] = -1;
