@@ -1,9 +1,6 @@
 package MST_Disjoint_Set;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Account_Merge {
     static ArrayList<ArrayList<String>> Merge(ArrayList<ArrayList<String>> details){
@@ -45,6 +42,32 @@ public class Account_Merge {
             ans.add(temp);
         }
         return ans;
+    }
+    public static void main (String[] args) {
+        ArrayList<ArrayList<String>> accounts = new ArrayList() {
+            {
+                add(new ArrayList<String>(Arrays.asList("John", "j1@com", "j2@com", "j3@com")));
+                add(new ArrayList<String>(Arrays.asList("John", "j4@com")));
+                add(new ArrayList<String>(Arrays.asList("Raj", "r1@com", "r2@com")));
+                add(new ArrayList<String>(Arrays.asList("John", "j1@com", "j5@com")));
+                add(new ArrayList<String>(Arrays.asList("Raj", "r2@com", "r3@com")));
+                add(new ArrayList<String>(Arrays.asList("Mary", "m1@com")));
+
+            }
+        };
+
+        ArrayList<ArrayList<String>> ans = Merge(accounts);
+
+        int n = ans.size();
+        for (int i = 0; i < n; i++) {
+            System.out.print(ans.get(i).get(0) + ": ");
+            int size = ans.get(i).size();
+            for (int j = 1; j < size; j++) {
+                System.out.print(ans.get(i).get(j) + " ");
+            }
+
+            System.out.println();
+        }
 
     }
 }
