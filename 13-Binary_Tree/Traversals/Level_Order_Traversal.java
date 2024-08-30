@@ -15,9 +15,12 @@ public class Level_Order_Traversal {
             return ans;
         }
         q1.add(temp);
+
+
         while(!q1.isEmpty()){
             ArrayList<Integer> level = new ArrayList<>();
-            for(int i = 0; i < q1.size();i++){
+            int n = q1.size();
+            for(int i = 0; i < n;i++){
                 // Get the front node in the queue
                 Node node = q1.poll();
 
