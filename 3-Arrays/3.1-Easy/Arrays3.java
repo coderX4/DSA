@@ -81,10 +81,9 @@ public class Arrays3 {
         //int num = Arrays3.missing_XOR(A, 10);
         //System.out.println("The missing number is " + num);
 
-        int[] B = {1,1,2,2,3,3,4,5,5};
+        int[] B = {1,1,2,2,3,3,3,4,5,5,5,6};
         //\][Arrays3.oncetwice(B);
         int result = Arrays3.longestsubarraysum(B,5);
         System.out.println(result);
-
     }
 }

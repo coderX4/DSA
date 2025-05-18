@@ -9,7 +9,6 @@ public class Maximum_Height {
         int rh = Max_Depth(root.right);
         return (1 + Math.max(lh,rh));
     }
-
     public static void main(String[] args) {
         Node root = new Node(1);
         Node c1 = new Node(2);
@@ -26,7 +25,6 @@ public class Maximum_Height {
         Node c22 = new Node(7);
         c2.left = c21;
         c2.right = c22;
-
         System.out.println("Max Height: " + Max_Depth(root));
     }
 }

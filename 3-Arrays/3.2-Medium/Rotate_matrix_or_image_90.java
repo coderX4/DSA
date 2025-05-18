@@ -1,6 +1,10 @@
 public class Rotate_matrix_or_image_90 {
     public static void main(String[] args) {
-        int[][] A = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+        int[][] A = {
+                {1,2,3,4},
+                {5,6,7,8},
+                {9,10,11,12},
+                {13,14,15,16}};
         int n = 4, m = 4;
         System.out.println("Matrix Before: ");
         for(int i = 0;i<n;i++){

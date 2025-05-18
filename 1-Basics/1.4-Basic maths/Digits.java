@@ -61,12 +61,12 @@ public class  Digits{
     } 
 
     public static void Divisors(int n){
-        for(int i = 1 ;i <= Math.sqrt(n) ; i++){
+        for(int i = 1 ;i*i <= n ; i++){
             if(n % i == 0) {
                 System.out.print(i+" ");
                 if( n/i != i){
                 System.out.print(n/i+" ");
-            }
+                }
             }
         }
     }
@@ -99,6 +99,6 @@ public class  Digits{
     public static void main(String[] args){
         int num = 9 ;
         int d = 12;
-        Digits.GCD(num,d);
+        Digits.Divisors(d);
     }
 }

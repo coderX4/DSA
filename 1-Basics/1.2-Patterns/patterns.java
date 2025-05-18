@@ -58,7 +58,7 @@ public class patterns{
     public static void pattern6(int n) {
         // Write your code here
         for(int i = 0; i<n ;i++){
-            for(int j = 0; j<=n-i-1 ;j++){
+            for(int j = 0; j<n-i ;j++){
                 System.out.print(j+1 + " ");
                 
             }
@@ -75,9 +75,6 @@ public class patterns{
             for(int k=0;k<2*i +1;k++){
                 System.out.print("*");
             }
-            for(int l = 0; l<n-i-1 ;l++){
-                System.out.print(" ");
-            }
             System.out.println();
         }
     }
@@ -91,9 +88,9 @@ public class patterns{
             for(int k= 0;k<2*n-(2*i+1);k++){
                 System.out.print("*");
             }
-            for(int l = 0; l<i ;l++){
-                System.out.print(" ");
-            }
+//            for(int l = 0; l<i ;l++){
+//                System.out.print(" ");
+//            }
             System.out.println();
         }
     }
@@ -350,9 +347,31 @@ public class patterns{
         }
     }
 
+    public static void pattern24(int n){
+        for(int i = 0; i < 2*n-1; i++) {
+            if(i <= n-1){
+                for (int j = 0; j < n - i - 1; j++) {
+                    System.out.print(" ");
+                }
+                for (int j = 0; j < (2 *i + 1); j++) {
+                    System.out.print("*");
+                }
+            }
+            else{
+                for(int j=0; j < i-n+1 ;j++){
+                    System.out.print(" ");
+                }
+                for(int j=(2*(n-1)-1); j > i-n; j--){
+                    System.out.print("*");
+                }
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args){
         int n = 4;
-        patterns.pattern20(n);
+        pattern24(n);
     }
     
 }
